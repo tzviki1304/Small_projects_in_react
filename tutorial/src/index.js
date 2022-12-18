@@ -1,27 +1,8 @@
-import React from 'react';
-import ReactDom from 'react-dom';
+import React from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App'
 
-// css
-import './index.css';
-
-import {books} from './books'
-import Book from './Book'
-
-
-
-function BookList() {
-  return (
-    <section className='booklist' > 
-      {books.map((book)=> {
-        const { img, title, author} = book ;
-        return (
-          <Book key={book.id} {...book} ></Book>
-        )
-      })}
-    </section>
-  )
-}
-
-
-
-ReactDom.render(<BookList /> , document.getElementById('root'));
+const container = document.getElementById('root')
+const root = createRoot(container) // createRoot(container!) if you use TypeScript
+root.render(<App tab='home' />)
